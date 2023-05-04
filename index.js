@@ -52,11 +52,12 @@ function addBookToShelf(book, i, bookShelf){
 
     //Add number of pages
     let currentBookPages = document.createElement("p");
-    currentBookPages.innerText = book.noOfPages;
+    currentBookPages.innerText = `${book.noOfPages} pages`;
 
     //Add book status
     let currentBookStatus = document.createElement("p");
-    currentBookStatus.id = "book-status"
+    currentBookStatus.className = "book-status";
+    currentBookStatus.id = `book-status${i}`;
     currentBookStatus.innerText = book.status;
 
     //Create delete button
@@ -76,8 +77,27 @@ function addBookToShelf(book, i, bookShelf){
     });
     currentBookDeleteButton.appendChild(deleteImg);
 
+    //Create change read
+    let changeToRead = document.createElement("div");
+    changeToRead.id = `book-read-${i}`;
+    changeToRead.className = "book-read-button";
+
+    //Create read status image
+    let changeToReadImg = document.createElement("img");
+    changeToReadImg.src = "/img/read.svg";
+    changeToReadImg.alt = `Book read button icon`;
+    changeToReadImg.id = `read-book-icon-${i}`;
+    changeToReadImg.className = "read-book-icon";
+    changeToReadImg.addEventListener("click", function (e){
+        console.log(e.target.id.split("-").slice(-1)[0]);
+        readBook(i);
+    });
+    
+    changeToRead.appendChild(changeToReadImg);
+
     //Push book elements into Div
     currentBook.appendChild(currentBookDeleteButton);
+    currentBook.appendChild(changeToRead);
     currentBook.appendChild(currentBookTitle);
     currentBook.appendChild(currentBookAuthor);
     currentBook.appendChild(currentBookPages);
@@ -94,13 +114,11 @@ function deleteBook(i, bookShelf, myLibrary){
         let book = document.getElementById(`book${i}`);
         bookShelf.removeChild(book);
         myLibrary.pop([i]);
-    
 }
-//         // bookShelf.removeChild(currentBook);
-// })}
-    
 
-
+function readBook(i){
+    document.getElementById(`book-status${i}`).innerText = "Read"; 
+}
 
 //Pop up form when AddBook button is clicked
 let popUpForm = document.querySelector("#popUpForm"); //Pop-up Form
@@ -111,8 +129,6 @@ button.addEventListener("click", function () {
     document.getElementById("popUpForm").style.display = "block";
 });
 
-
-
 //Grab information from form
 let titleValue = document.getElementById("form-id").addEventListener("submit", function (e){
     e.preventDefault();
@@ -120,8 +136,13 @@ let titleValue = document.getElementById("form-id").addEventListener("submit", f
     const formProps = Object.fromEntries(formData);
 
     //Add book to library
-    addBookToLibrary(formProps.title, formProps.author, formProps.noOfPages, formProps.status, myLibrary);
-    addBookToShelf(myLibrary[myLibrary.length-1]);
+    const bookShelf = document.querySelector('.book-shelf');  //Current book shelf
+    const newBook = new Book(formProps.title, formProps.author, formProps.noOfPages, formProps.status); //Create book object
+    myLibrary.push(newBook); //Add book to existing library
+    let i = myLibrary.length -1; //Book Counter
+
+
+    addBookToShelf(myLibrary[i], i, bookShelf)
     console.log(formProps);
 
     //Reset form
@@ -129,7 +150,4 @@ let titleValue = document.getElementById("form-id").addEventListener("submit", f
 
     //Hide form after submission
     document.getElementById("popUpForm").style.display = "none";
-
-
-
 })

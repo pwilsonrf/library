@@ -54,7 +54,7 @@
 }
 
 .book-item{
-    height: 300px;
+    
     width: 200px;
 
     background-color: #FFFFFF;
@@ -90,7 +90,7 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
 
 }
 
-#book-status{
+.book-status{
     font-size: 16px;
     font-family: Roboto;
     color: #0A043C;
@@ -148,6 +148,7 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
     width: 100%;
     border: 0.25px solid rgba(0,0,0,0.3);
     border-radius: 15px;
+    padding-left: 15px;
 }
 
 
@@ -183,6 +184,19 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
 }
 
 .delete-book-button {
+    align-self: flex-end;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Delete Book Styling*/
+.book-read-button img {
+    height: 30px;
+    width: 30px;
+    
+}
+
+.book-read-button {
     align-self: flex-end;
     padding: 0px;
     margin: 0px;
