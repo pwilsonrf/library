@@ -6,7 +6,6 @@
     --darkGray: rgba(0,0,0,0.3);
 }
 
-
 .container{
     display: grid;
 
@@ -15,8 +14,6 @@
 
     height: 100vh;
 }
-
-
 
 .header-container{
     grid-column: 1/3;
@@ -41,7 +38,6 @@
     background-color: var(--orange);
 }
 
-
 .book-shelf{
     display: grid;
 
@@ -54,40 +50,29 @@
 }
 
 .book-item{
-    
     width: 200px;
-
     background-color: #FFFFFF;
-
     padding: 20px;
     border: 1px solid rgba(0,0,0,0.3);
-
-
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    
+    justify-content: space-between;   
 }
 
 .book-item h3{
     font-size: 36px;
     font-family: Roboto;
     background: rgb(121,9,81);
-background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);-webkit-background-clip: text;
+    background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);-webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 5px;
-
 }
 
 .book-item p{
     font-size: 16px;
     font-family: Roboto;
-    
     color: #0A043C;
-
     margin-bottom: 5px;
-
 }
 
 .book-status{
@@ -100,33 +85,23 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
     text-align: center;
     border-radius: 15px;
     border: 0.5px solid rgba(0,0,0,0.3);
-
     margin-bottom: 5px;
-
     justify-self: baseline;
-
 }
 
-
 .form-popup{
-  display: none;
-  position: absolute;
-    
-
-  justify-self: center;
-  align-self: center;
-
-  border: 0.1px solid var(--purple);
-  border-radius: 15px;
-  z-index: 9;
-
+    display: none;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    border: 0.1px solid var(--purple);
+    border-radius: 15px;
+    z-index: 9;
     height: 400px;
     width: 500px;
     background-color: var(--gray);
-
     transition: 2s;
     transition-duration: 2s;
-    
 }
 
 .form-container{
@@ -134,13 +109,10 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
     max-width: 300px;
     height: 80%;
     padding: 10px;
-
     display: flex;
     flex-direction: column;
     margin: auto;
-
     justify-content: space-between;
-
 }
 
 .form-container input[type="text"]{
@@ -156,18 +128,13 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
 #addBook {
     height: 30px;
     width: 120px;
-
     border: 0.25px solid darkGray;
     background-color: var(--yellow);
     border-radius: 15px;
-
-
     font-size: 16px;
     font-family: Roboto;
     color: var(--purple);
-
     margin: 50px auto auto 50px;
-
     transition: 0.25s;
 }
 
@@ -180,7 +147,6 @@ background: linear-gradient(45deg, rgba(121,9,81,1) 19%, rgba(0,212,255,1) 92%);
 .delete-book-button img {
     height: 30px;
     width: 30px;
-    
 }
 
 .delete-book-button {
